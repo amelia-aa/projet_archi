@@ -16,10 +16,8 @@
 <body>
 
 <header>
-<div class="entete">
-     
-                  <h1 id="titre">Agence d'architecture</h1><br>
-           
+<div class="entete">   
+<br>        
 </div>
 </header>
 

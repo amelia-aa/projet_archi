@@ -19,33 +19,34 @@
         <form name="sentMessage" id="contactForm" method="post" action="bin/contact_me.php" novalidate >
             <div class="control-group form-group">
                 <div class="controls">
-                    <label id="label">Nom:</label>
+                <br>
+                    <label id="label">Nom :</label>
                     <input type="text" class="form-control" name="nom" id="nom" required data-validation-required-message="Veuillez rentrer votre nom.">
                     <p class="help-block"></p>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label id="label">Prénom:</label>
+                    <label id="label">Prénom :</label>
                     <input type="text" class="form-control" name="prenom" id="prenom" required data-validation-required-message="Veuillez rentrer votre prénom.">
                     <p class="help-block"></p>
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label id="label">Télèphone:</label>
+                    <label id="label">Télèphone :</label>
                     <input type="tel" class="form-control"  name="telephone" id="telephone" required data-validation-required-message="Veuillez rentrer votre numéro de télèphone.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label id="label">Email:</label>
+                    <label id="label">Email :</label>
                     <input type="email" class="form-control" name="email" id="email" required data-validation-required-message="Veuillez rentrer votre adresse email.">
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
-                    <label id="label">Message:</label>
+                    <label id="label">Message :</label>
                     <textarea rows="10" cols="100" class="form-control"  name="message" id="message" required data-validation-required-message="Veuillez rentrer votre message." maxlength="999" style="resize:none"></textarea>
                 </div>
             </div>

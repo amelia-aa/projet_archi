@@ -11,7 +11,7 @@
     margin: 0;
     padding:0;
     border:solid 2px;
-    border-color: #196666;
+    border-color: #1d324b;
 }
 
 #sous_map{
@@ -20,12 +20,14 @@
 #form{
     margin: 0px 0px 0px 0px;
     border:solid 2px;
-    border-color: #196666;
+    border-color: #1d324b;
     top:5%;
     left:10%;
     width:45%;
     bottom:5%;
     right:100%;
-    background-color: rgba(25,102,102,0.5);
+    background-color: #3e6ba4;
+    font-size: 15px;
+    color: #AFEEEE;
 
 }
