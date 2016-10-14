@@ -16,9 +16,9 @@
 <body>
 
 <header>
-<div class="entete" >
-    <img class="img-fluid" src="Bandeau.jpg" alt="image bandeau">
-</div>
+    <div class="entete" >
+        <img class="img-fluid" src="Bandeau.jpg" alt="image bandeau">
+    </div>
 </header>
 
 <div class="container" >
@@ -52,3 +52,5 @@
 
 </body>
 </html>
+
+

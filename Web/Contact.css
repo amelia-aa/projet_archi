@@ -2,13 +2,10 @@
 
 #contact{
     width:100%;
-    margin-left:20px;
-    margin-right: 20px;
-
 }
 
 #map{
-    margin: 0;
+    margin-left: 5%;
     padding:0;
     border:solid 2px;
     border-color: #1d324b;
@@ -17,17 +14,21 @@
 #sous_map{
     margin-bottom: -20px;
 }
+
 #form{
-    margin: 0px 0px 0px 0px;
+    margin-left: 5%;
     border:solid 2px;
     border-color: #1d324b;
-    top:5%;
-    left:10%;
-    width:45%;
-    bottom:5%;
-    right:100%;
     background-color: #3e6ba4;
+    font-family: "Lucida Sans";
     font-size: 15px;
-    color: #AFEEEE;
+    color: #a5abc5;
+}
+
+#coordo{
+    margin-top: 1%;
+    text-align: center;
+    font-family: "Lucida Sans";
+    color:#1d324b;
 
 }
