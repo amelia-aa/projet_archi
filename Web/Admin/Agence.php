@@ -10,18 +10,19 @@
           integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Accueil.css">
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="Agence.css">
 </head>
+
 <body>
 
 <header>
-<div class="entete" >
-    <a href="Accueil.php"><img class="img-fluid" src="Bandeau.jpg" alt="image bandeau"></a>
-</div>
-</header>
+    <div class="entete" >
+        <img class="img-fluid" src="Bandeau.jpg" alt="image bandeau">
+    </div>
 
-<div class="container" >
+    <div class="container" >
     <nav class="navbar navbar-default" id="menu">
         <div class="container-fluid" id="sous-menu">
             <div class="navbar-header">
@@ -34,10 +35,9 @@
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" >
-                    <li><a href="#">L'agence d'architecture</a></li>
-                    <li><a href="#">Projets</a></li>
-                    <li><a href="#">Habitat développement durable</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="#">Liste des clients</a></li>
+                    <li><a href="#">Liste des entreprises</a></li>
+                    <li><a href="#">Liste des messages</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -45,10 +45,9 @@
         <!--/.container-fluid -->
     </nav>
 </div>
-
-
-
-
+</header>
 
 </body>
 </html>
+
+
