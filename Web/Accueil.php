@@ -21,8 +21,8 @@
 </div>
 </header>
 
-<div class="container" >
-    <nav class="navbar navbar-default" id="menu">
+<div id="menu">
+    <nav class="navbar navbar-default" >
         <div class="container-fluid" id="sous-menu">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
@@ -40,15 +40,11 @@
                     <li><a href="Contact.php">Contact</a></li>
                 </ul>
             </div>
-            <!--/.nav-collapse -->
+
         </div>
-        <!--/.container-fluid -->
+
     </nav>
 </div>
-
-
-
-
 
 </body>
 </html>

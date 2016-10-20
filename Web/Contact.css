@@ -20,16 +20,17 @@
     margin-left: 6%;
     border:solid 2px;
     border-color: #1d324b;
-    background-color: #3e6ba4;
-    font-family: "Verdana";
-    font-size: 15px;
+    background-color: #4e79a4;
+    font-family: "Gill Sans MT";
+    font-size: 18px;
     color: #a5abc5;
 }
 
 #coordo{
     margin-top: 1%;
     text-align: center;
-    font-family: "Verdana";
+    font-family: "Gill Sans MT";
+    font-size: 1.5em;
     color:#1d324b;
 }
 

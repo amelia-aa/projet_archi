@@ -6,10 +6,10 @@
 <div id="contact" class="row">
     
     <div id="form" class=" col-lg-5 col-lg-5-offset-1 col-md-5 col-md-5-offset-1 col-sm-5 col-sm-5-offset-1 col-sx-5">
-        <form name="contactForm" id="contactForm" method="post" action="Contact.php" >
+        <form name="contactForm" id="contactForm" method="post" action="Contact.php" onsubmit="return verif_form();" >
             <div class="control-group form-group">
                 <div class="controls">
-        
+                <br>
                     <label id="label">Nom :</label>
                     <input type="text" class="form-control" name="nom" id="nom" required >
                     <p class="help-block"></p>
@@ -25,13 +25,13 @@
             <div class="control-group form-group">
                 <div class="controls">
                     <label id="label">Téléphone :</label>
-                    <input type="text" class="form-control"  name="telephone" id="telephone" pattern="^[0]{1}[0-9]{9}$" required placeholder="0xxxxxxxxx" data-validation-required-message="votre téléphone">
+                    <input type="text" class="form-control"  name="telephone" id="telephone" required >
                 </div>
             </div>
             <div class="control-group form-group">
                 <div class="controls">
                     <label id="label">Email :</label>
-                    <input type="email" class="form-control" name="email" id="email" pattern="^[A-Za-z0-9.]+@[A-Za-z0-9.]+\.[A-Za-z]{2,4}$" required>
+                    <input type="email" class="form-control" name="email" id="email" required>
                 </div>
             </div>
             <div class="control-group form-group">
@@ -43,7 +43,7 @@
 
             <div class="control-group form-group">
                     <div class="input-group">
-                        <select name="situation" id="situation" class="form-control selectpicker" required data-validation-required-message="Faire un choix">
+                        <select name="situation" id="situation" class="form-control selectpicker" required >
                             <option value="" >Veuillez préciser si vous êtes un particulier ou une entreprise :</option>
                             <option value="Particulier">Particulier</option>
                             <option value="Entreprise">Entreprise</option>
@@ -70,12 +70,15 @@
                 <img id="img" src="phone2.png" width="25px" height="25px" alt="logo phone">05 61 41 75 90
             </p>
         </section>
+        <section id="">
+            <p></p>
+        </section>
     </div>
 <br><br>
     <div id="map" class="col-lg-5 col-md-5 col-sm-5 col-sx-6">
         <div style="width: 100%" id="sous_map">
-            <iframe width="100%" height="469"
-                    src="http://www.mapsdirections.info/fr/creez-une-carte-google/map.php?width=100%&height=600&hl=en&q=10%20Impasse%20Salini%C3%A9%2031100%20Toulouse+(Agence%20d'Architecte%20Joaquim%20Andr%C3%A9)&ie=UTF8&t=&z=13&iwloc=A&output=embed"
+            <iframe width="100%" height="478"
+                    src="http://www.mapsdirections.info/fr/creez-une-carte-google/map.php?width=100%&height=600&hl=en&q=10%20Impasse%20Salini%C3%A9%2031100%20Toulouse+(Agence%20d'Architecture%20Joaquim%20Andr%C3%A9)&ie=UTF8&t=&z=13&iwloc=A&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                 <a href="http://www.mapsdirections.info/fr/creez-une-carte-google/">Créez une Carte Google</a> by
                 <a href="http://www.mapsdirections.info/fr/">Carte de France</a>
@@ -90,16 +93,16 @@
 
 <?php
 // Fonction verifie le n° de telephone
- /*function verif_num($param){
+function verif_num($param){
     $num = str_replace (' ','',$param);  // on remplace l'espace par rien
-   if (is_numeric($num)){
+    if (is_numeric($num)){
         return $num;
     }
     else {
 
         return "erreur";
     }
-}*/
+}
 
 ?>
 
@@ -112,16 +115,15 @@ if (isset($_POST['envoi']))
 {
     $nom = htmlentities($_POST['nom'], ENT_QUOTES);
     $prenom = htmlentities($_POST['prenom'], ENT_QUOTES);
-    $telephone = ($_POST['telephone']);
 
-    /*if(isset($_POST['telephone']))
+    if(isset($_POST['telephone']))
     {
         $telephone = verif_num($_POST['telephone']);
         if($telephone=="erreur"){
            echo '<script>alert("Veuillez entrer un numéro de téléphone");
                </script>';
         }
-        else{*/
+        else{
             $email = htmlentities($_POST['email'], ENT_QUOTES);
 
             $date = date("Y/m/d"); // date du jour
@@ -157,14 +159,14 @@ if (isset($_POST['envoi']))
                 'mystatut' => $situation,
 
             ));
-       /* }
-    }*/
+        }
+    }
 
 }
 
  if (!empty($nom) && !empty($prenom) && !empty($telephone)&& !empty($email) && !empty($message) && !empty($situation) ){
      echo '<script language="javascript">';
-     echo 'alert("Votre message a été envoyé")';
+     echo 'alert("Message envoyé")';
      echo '</script>';
  }
 
