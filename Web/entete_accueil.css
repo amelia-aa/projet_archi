@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #a5abc5;
+    width:100%;
+}
+
+.img-fluid{
+    max-width: 100%;
+    height: auto;
+    width:100%;
+    background-repeat:  no-repeat;
+    background-size: 100%;
+}
+
+#menu{
+    width: 100%;
+
+
+}
+
+#navbar1{
+    margin-left: 25%;
+}
+
+
+#navbar1 ul li a{
+    font-family: "Gill Sans MT";
+    font-size: 20px;
+    color: #a5abc5;
+
+}
+
+#navbar1 ul li a:hover{
+    color: #1d324b;
+}
+
+#sous-menu{
+    max-width: 100%; 
+    background-color: #4e79a4;
+    color: #196666;
+
+}

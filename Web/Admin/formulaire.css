@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#ajoutClient{
+    width: 80%;
+    margin: auto;
+
+}
+
+
+
+#ajoutEntreprise{
+    width: 80%;
+    margin: auto;
+}
+
+ label{
+     float: left;
+     font-family: "Gill Sans MT";
+     color: #1d324b;
+ }
+
+ p{
+     margin-left: 10%;
+     font-size: 2em;
+     font-family: "Gill Sans MT";
+     color: #1d324b;
+ }
+
+
+ #bouton{
+     float: right;
+     margin-top: 1%;
+     margin-right: 3%;
+ }

@@ -1,50 +1,29 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agence d'architecture Joaquim André</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="Accueil.css">
-</head>
-<body>
+<link rel="stylesheet" href="accueil.css">
 
-<header>
-<div class="entete" >
-    <a href="Accueil.php"><img class="img-fluid" src="Bandeau.jpg" alt="image bandeau"></a>
+
+
+<?php   include("entete_accueil.php");  
+?>
+
+<div id="conteneur" class="row">
+    <div id="diaporama" class=" col-lg-6 col-md-6 col-sm-6 col-sx-6">
+
+    <ul class="slideshow1">
+        <li><img src="upload/koala.jpg" alt></li>
+        <li><img src="upload/lighthouse.jpg" alt></li>
+        <li><img src="upload/pena.jpg" alt></li>
+    </ul>
+   
+    </div>
+    <div class=" col-lg-1 col-md-1 col-sm-1 col-sx-1"></div>  
+    <div id="texte" class=" col-lg-5 col-md-5 col-sm-5 col-sx-5"> 
+        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page 
+        avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un 
+        peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. 
+        Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que 
+        son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset 
+        contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en 
+        page de texte, comme Aldus PageMaker.</div>
+    
 </div>
-</header>
-
-<div id="menu">
-    <nav class="navbar navbar-default" >
-        <div class="container-fluid" id="sous-menu">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div id="navbar1" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav" >
-                    <li><a href="#">L'agence d'architecture</a></li>
-                    <li><a href="#">Projets</a></li>
-                    <li><a href="#">Habitat développement durable</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
-                </ul>
-            </div>
-
-        </div>
-
-    </nav>
-</div>
-
-</body>
-</html>
+<div></div>

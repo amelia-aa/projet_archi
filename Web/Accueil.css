@@ -1,47 +1,84 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+#conteneur{
+    width:60%;
+    margin: auto;
 }
 
-body{
-    background-color: #a5abc5;
-    width:100%;
+/*#diaporama{
+    width: 350px;
+    height: 300px;
+    background-image: url("upload/koala.jpg");
+    box-shadow:0 1px 4px hsla(0,0%,0%,.4);
+
+    -webkit-animation-name: diapo1;
+    -webkit-animation-duration: 12s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: normal;
+
+    -moz-animation-name: diapo1;
+    -moz-animation-duration: 12s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: normal;
+    
+    animation-name: diapo1;
+    animation-duration: 12s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
 }
 
-.img-fluid{
-    max-width: 100%;
-    height: auto;
-    width:100%;
-    background-repeat:  no-repeat;
-    background-size: 100%;
+@-webkit-keyframes diapo1{
+    0%{background-image: url("upload/koala.jpg");}
+    33%{background-image: url("upload/lighthouse.jpg");}
+    66%{background-image: url("upload/pena.jpg");}
 }
 
-#menu{
-    width: 100%;
-
-
+@-moz-keyframes diapo1{
+    0%{background-image: url("upload/koala.jpg");}
+    33%{background-image: url("upload/lighthouse.jpg");}
+    66%{background-image: url("upload/pena.jpg");}
 }
 
-#navbar1{
-    margin-left: 25%;
-}
+@keyframes diapo1{
+    0%{background-image: url("upload/koala.jpg");}
+    33%{background-image: url("upload/lighthouse.jpg");}
+    66%{background-image: url("upload/pena.jpg");}
+}*/
+
+.slideshow1 [src]{
+position:absolute;
+opacity:0;
+left:0;
+width: 100%;
+height: auto;
+-webkit-mask-image:linear-gradient(45deg,hsl(0,0%,0%) 47%,transparent 52%);
+-webkit-mask-size:300% 100%;
+animation-name:slide;
+animation-duration: 12s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+ }
+       
+.slideshow1{
+list-style:none;
+position:relative;
+overflow:hidden;
+width:350px;
+height:250px;
+box-shadow:0 1px 4px hsla(0,0%,0%,.4)}
+
+.slideshow1 [src="upload/lighthouse.jpg"]{animation-delay:3s}
+.slideshow1 [src="upload/pena.jpg"]{animation-delay:6s}
 
 
-#navbar1 ul li a{
-    font-family: "Gill Sans MT";
-    font-size: 20px;
-    color: #a5abc5;
+@keyframes slide{
+0%{opacity:1}
+25%{opacity:1;-webkit-mask-position:0}
+50%{opacity: 1;-webkit-mask-position:100%}
+100%{opacity:0}
+}   
 
-}
 
-#navbar1 ul li a:hover{
-    color: #1d324b;
-}
 
-#sous-menu{
-    max-width: 100%; 
-    background-color: #4e79a4;
-    color: #196666;
-
-}

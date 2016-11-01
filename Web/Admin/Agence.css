@@ -17,15 +17,20 @@ body{
     background-size: 100%;
 }
 
-
-
 #menu{
-    width: 100%; 
+    width: 100%;
+
 }
 
+#navbar1{
+    margin-left: 35%;
+
+}
+
+
 #navbar1 ul li a{
-    font-family: "Verdana";
-    font-size: 20px;
+    font-family: "Gill Sans MT";
+    font-size: 1.5em;
     color: #a5abc5;
 }
 
@@ -39,3 +44,54 @@ body{
     color: #196666;
 
 }
+
+
+
+/*menu deroulant*/
+#navbar1 ul {
+    padding:0;
+    margin-top:10px;
+    list-style:none;
+    z-index: 100;
+}
+
+#navbar1 > ul > li {
+    float:left;
+    margin:0;
+    padding:0;
+    position:relative;
+}
+
+#navbar1 > ul > li > a {  /* menu principal */
+    display:block;
+    background:rgba(100,100,100,.0); /*mettre en transparence le background du menu*/
+    min-width:100px;
+    text-align:center;
+    padding:10px 15px 10px 15px;
+    text-decoration:none;
+    color:#a5abc5;
+}
+
+
+#navbar1 > ul > li > ul {
+    position:absolute;
+    top:25px;
+    left:0;
+    display:none; /*cache le menu deroulant*/
+}
+
+#navbar1 > ul > li > ul > li > a {/* menu secondaire */
+    background:#3e6ba4;
+    display:block;
+    padding:5px 10px 5px 10px;
+    text-decoration:none;
+    color:#a5abc5;
+    border-bottom:1px solid #a5abc5;
+    min-width:130px;
+}
+
+
+
+
+
+
