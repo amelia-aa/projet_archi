@@ -33,10 +33,10 @@
             </div>
             <div id="navbar1" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" >
-                    <li><a href="#">L'agence d'architecture</a></li>
+                    <li><a href="#">L'agence d'architecte</a></li>
                     <li><a href="#">Projets</a></li>
                     <li><a href="#">Habitat développement durable</a></li>
-                    <li><a href="Contact.php">Contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
         </div>

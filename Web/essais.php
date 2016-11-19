@@ -1,66 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Example of Bootstrap 3 Static Navbar</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <style type="text/css">
-        .bs-example{
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-<div class="bs-example">
-    <nav role="navigation" class="navbar navbar-default">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="#" class="navbar-brand">Brand</a>
-        </div>
-        <!-- Collection of nav links and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Messages</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
 
 
-<div class="form-group">
-    <label class="col-md-4 control-label">State</label>
-    <div class="col-md-4 selectContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-            <select name="state" class="form-control selectpicker" >
-                <option value=" " >Please select your state</option>
-                <option>Alabama</option>
-                <option>Alaska</option>
-                
-            </select>
-        </div>
+
+<?php include("accueil.php");
+require_once('connect_bd.php');
+
+?>
+
+
+
+
+
+
+
+<div>
+<form class="form-horizontal" name="formClient" id="ajoutClient" method="post" action="essais.php"    enctype="multipart/form-data">
+
+    <div class="form-group">
+        <label id="label" >Image 1 :</label>
+        <input type="file" class="form-control" name="image1" id="image1" >
+        <input id="bouton" type="submit" name="envoi" class="btn btn-primary">
     </div>
+</form>
 </div>
+    <?php
+
+    if (isset($_POST['envoi']))   // "isset" fonction qui verifie si presence de la variable send ou si la personne a cliquer sur valider
+    {
+
+
+ function recupImage($name){
+
+            ///// VERIFICATION de L'EXTENSION du FICHIER PHOTO /////
+
+            $namenospace = str_replace(' ', '', $_FILES[$name]['name']);  //enleve les espaces dans les noms des fichiers
+            $namelower = strtolower($namenospace);  // mettre les noms des fichiers photo en minuscules
+            $extension = pathinfo($namelower, PATHINFO_EXTENSION);   // extrait l'extension
+            $extensionOK = array('jpg', 'jpeg', 'gif', 'png');  // creation d'un tableau avec des extension possibles pour les photos
+
+            if (in_array($extension, $extensionOK))  // on compare les extension avec les extension de $extensionOK
+            {
+                $destination = 'upload/';   //destination des photos dans le dossier upload
+                $nom = $destination .$namelower;
+                move_uploaded_file($_FILES[$name]['tmp_name'],$nom);
+                return $nom;
+
+            } else {
+               echo 'L\'extension n\'est pas valide';
+                exit();  //on arrete le script a ce niveau
+            }
+}
+        $nomImage1=recupImage('image1');
+        echo $nomImage1;
+
+        $requete = $bdd->prepare('INSERT INTO projets
+        (image1, id_Client) VALUES(:myimage1,24)');
+
+        $requete->execute(array(
+            'myimage1' => $nomImage1
+        ));
+
+    }
 
 
 
+    ?>
 
-
-</body>
-</html>

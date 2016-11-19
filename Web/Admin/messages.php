@@ -23,7 +23,7 @@
     </tr>
 
 <?php
-    $requete = $bdd->query('SELECT * FROM messagevisiteurs ORDER BY id_Visiteurs DESC');  // selectionne toutes les donnees de la table travel par son id
+    $requete = $bdd->query('SELECT * FROM messagevisiteurs ORDER BY id_Visiteur DESC');  // selectionne toutes les donnees de la table travel par son id
 
     while($donnees = $requete->fetch())   // fetch cree un tableau associatif
     {
@@ -35,7 +35,7 @@
             <td>'.$donnees['dateMessage'].'</td>
             <td>'.$donnees['message'].'</td>
             <td>'.$donnees['statut'].'</td>
-            <td><a href="supprimer.php?id_Visiteurs='.$donnees['id_Visiteurs'].'"class="btn btn-primary">Supprimer</a></td>
+            <td><a href="supprimer_message.php?id_Visiteur='.$donnees['id_Visiteur'].'"class="btn btn-primary">Supprimer</a></td>
             </tr>';
     }
 ?>

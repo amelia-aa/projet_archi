@@ -4,6 +4,21 @@
     margin: auto;
 }
 
+
+
+.mySlides {
+    display:none;
+}
+
+
+.slideshow{
+    list-style:none; /* pas de puce*/
+    position:relative;
+    overflow:hidden;
+    box-shadow:5px 5px 4px #656565; /* contour de l'image*/
+}
+
+
 /*#diaporama{
     width: 350px;
     height: 300px;
@@ -45,7 +60,12 @@
     0%{background-image: url("upload/koala.jpg");}
     33%{background-image: url("upload/lighthouse.jpg");}
     66%{background-image: url("upload/pena.jpg");}
-}*/
+}
+
+
+
+
+
 
 .slideshow1 [src]{
 position:absolute;
@@ -67,7 +87,9 @@ position:relative;
 overflow:hidden;
 width:350px;
 height:250px;
-box-shadow:0 1px 4px hsla(0,0%,0%,.4)}
+box-shadow:0 1px 4px hsla(0,0%,0%,.4) 
+}
+
 
 .slideshow1 [src="upload/lighthouse.jpg"]{animation-delay:3s}
 .slideshow1 [src="upload/pena.jpg"]{animation-delay:6s}
@@ -79,6 +101,10 @@ box-shadow:0 1px 4px hsla(0,0%,0%,.4)}
 50%{opacity: 1;-webkit-mask-position:100%}
 100%{opacity:0}
 }   
+
+*/
+
+
 
 
 

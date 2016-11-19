@@ -10,9 +10,18 @@
 
 }
 
-
-
 #ajoutEntreprise{
+    width: 80%;
+    margin: auto;
+}
+
+#ajoutActivite{
+    width: 80%;
+    margin: auto;
+}
+
+
+#modifierClient{
     width: 80%;
     margin: auto;
 }
@@ -25,7 +34,7 @@
 
  p{
      margin-left: 10%;
-     font-size: 2em;
+     font-size: 1.7em;
      font-family: "Gill Sans MT";
      color: #1d324b;
  }

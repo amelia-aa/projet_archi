@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agence d'architecte Joaquim André</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -41,13 +41,14 @@
                         <ul>  <!-- menu secondaire -->
                             <li><a href="formulaire_client.php" >Ajouter un client</a></li>
                             <li><a href="formulaire_projet.php" >Ajouter un projet</a></li>
-                            <li><a href="liste_clients.php" >Liste des clients</a></li>
+                            <li><a href="list_clients.php" >Liste des clients</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Entreprises</a>
                         <ul>  <!-- menu secondaire -->
                             <li><a href="formulaire_entreprise.php" >Ajouter une entreprise</a></li>
-                            <li><a href="liste_entreprises.php" >Liste des entreprises</a></li>
+                            <li><a href="formulaire_travaux.php" >Ajouter une activité</a></li>
+                            <li><a href="list_entreprises.php" >Liste des entreprises</a></li>
                         </ul>
                     </li>
 

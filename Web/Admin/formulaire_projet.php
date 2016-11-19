@@ -9,22 +9,55 @@ require_once('fonction.php');
 
     <form class="form-horizontal" name="formClient" id="ajoutClient" method="post" action="formulaire_projet.php"  enctype="multipart/form-data">
         <div class=" col-lg-5  col-md-5  col-sm-5  col-sx-5">
+        <div class="row">
+        <div class=" col-lg-5  col-md-5  col-sm-5  col-sx-5">
             <div class="form-group">
-                <label id="label" >Nom* :</label>
-                <input type="text" class="form-control" name="nomClient" id="nomClient" required="required" value="<?php if (!empty($_POST['nomClient'])) echo htmlentities(trim($_POST['nomClient'])); ?>">
+                <label id="label" >Nom du client :</label>
+                <select name="nom" class="form-control selectpicker" >
+                <option value="" ></option>
+                <?php
+                $reponse = $bdd->query('SELECT * FROM clients ORDER BY id_Client DESC');
+                while ($donnees = $reponse->fetch())
+                    {
+                ?>
+                        <option value="<?php echo html_entity_decode($donnees['nomClient']) ?>"><?php echo html_entity_decode($donnees['nomClient'])?></option>
+                <?php
+                    }
+                ?>
+                </select>
                 <p class="help-block"></p>
             </div>
+            </div>
+            <div class=" col-lg-1  col-md-1  col-sm-1  col-sx-1"></div>
+            <div class=" col-lg-5  col-md-5  col-sm-5  col-sx-5">
             <div class="form-group">
-                <label id="label" >Prénom* :</label>
-                <input type="text" class="form-control" name="prenomClient" id="prenomClient" required="required" value="<?php if (!empty($_POST['prenomClient'])) echo htmlentities(trim($_POST['prenomClient'])); ?>">
+                <label id="label" >Prénom du client :</label>
+                <select name="prenom" class="form-control selectpicker" >
+                <option value="" ></option>
+                <?php
+                $reponse = $bdd->query('SELECT * FROM clients ORDER BY id_Client DESC');
+                while ($donnees = $reponse->fetch())
+                    {
+                ?>
+                        <option value="<?php echo html_entity_decode($donnees['prenomClient']) ?>"><?php echo html_entity_decode($donnees['prenomClient'])?></option>
+                <?php
+                    }
+                ?>
+                </select>
                 <p class="help-block"></p>
             </div>
+            </div>
+         </div>   
             <div class="form-group">
                 <label id="label" >Nom du projet :</label>
                 <input type="text" class="form-control" name="nomProjet" id="nomProjet"  value="<?php if (!empty($_POST['nomProjet'])) echo htmlentities(trim($_POST['nomProjet'])); ?>">
                 <p class="help-block"></p>
             </div>
-            <h5>(* champs obligatoires)</h5>
+            <div class="form-group">
+                <label id="label" >Date du projet :</label>
+                <input type="date" class="form-control date" name="dateProjet" id="dateProjet" placeholder="jj/mm/aaaa" value="<?php if (!empty($_POST['dateProjet'])) echo htmlentities(trim($_POST['dateProjet'])); ?>">
+                <p class="help-block"></p>
+            </div>
         </div>
         <div class=" col-lg-1  col-md-1  col-sm-1  col-sx-1"></div>
         <div class=" col-lg-5 col-md-5  col-sm-5  col-sx-5">
@@ -52,9 +85,9 @@ require_once('fonction.php');
             <div class="form-group">
                 <div class="input-group" id="statut">
                     <select name="statut"  class="form-control selectpicker " value="<?php if (!empty($_POST['statut'])) echo htmlentities(trim($_POST['statut'])); ?>">
-                        <<option value="" >Choisir si neuf ou ancien </option>
-                        <option value="Particulier">Neuf</option>
-                        <option value="Entreprise">Ancien</option>
+                        <option value="" >Choisir si neuf ou ancien </option>
+                        <option value="neuf">Neuf</option>
+                        <option value="ancien">Ancien</option>
                     </select>
                 </div>
             </div>
@@ -69,24 +102,143 @@ require_once('fonction.php');
 </form>
 </div>
 
+
 <?php
 
 if (isset($_POST['envoi'])) {
     // on affecte chaque donnée entrée dans le formulaire projets à une variable
-    $nomClient = htmlentities($_POST['nomClient'], ENT_QUOTES);
-    $prenomClient = htmlentities($_POST['prenomClient'], ENT_QUOTES);
+    $nomClient = htmlentities($_POST['nom'], ENT_QUOTES);
+    $prenomClient = htmlentities($_POST['prenom'], ENT_QUOTES);
     $nomProjet = htmlentities($_POST['nomProjet'], ENT_QUOTES);
+    /*$dateProjet = new DateTime($_POST['dateProjet']);*/
+    $dateProjet = date("Y-m-d",strtotime($_POST['dateProjet']));
 
-    $image1=recupImage('image1');
-    $image2=recupImage('image2');
-    $image3=recupImage('image3');
-    $image4=recupImage('image4');
+    //echo $nomClient.'  ' .$prenomClient. "Je suis à la date  ".$dateProjet;
 
     $statut = $_POST['statut'];
+
+    ///// TRAITEMENT DES PHOTOS /////
+
+    $image1=recupImage('image1');
+        $namenospace = str_replace(' ', '', $_FILES['image1']['name']);  //enleve les espaces dans les noms des fichiers
+        $namelower = strtolower($namenospace);  // mettre les noms des fichiers photo en minuscules
+        $extension = pathinfo($namelower, PATHINFO_EXTENSION);   // extrait l'extension
+        $extensionOK = array('jpg', 'jpeg', 'gif', 'png');  // creation d'un tableau avec des extension possibles pour les photos
+
+        if (in_array($extension, $extensionOK))  // on compare les extension avec les extension de $extensionOK
+        {
+            $destination = '../upload/';   //destination des photos dans le dossier upload
+            $nom = $destination . $namelower;
+
+            move_uploaded_file($_FILES['picture']['tmp_name'], $nom); // $img
+
+            if ($extension == 'jpg' || $extension == 'jpeg') {
+
+                imageCreateVignetteJpeg($nom, $namelower); // $nom : chemin du fichier  $namelower: nom du fichier en minuscule
+            } else if ($extension == 'gif') {
+
+                imageCreateVignetteGif($nom, $namelower);
+            } else {
+
+                imageCreateVignettePng($nom, $namelower);
+            }
+        } else {
+            echo 'L\'extension n\'est pas valide';
+            exit();  //on arrete le script a ce niveau
+        }
+
+
+    $image2=recupImage('image2');
+        $namenospace = str_replace(' ', '', $_FILES['image2']['name']);  //enleve les espaces dans les noms des fichiers
+        $namelower = strtolower($namenospace);  // mettre les noms des fichiers photo en minuscules
+        $extension = pathinfo($namelower, PATHINFO_EXTENSION);   // extrait l'extension
+        $extensionOK = array('jpg', 'jpeg', 'gif', 'png');  // creation d'un tableau avec des extension possibles pour les photos
+
+        if (in_array($extension, $extensionOK))  // on compare les extension avec les extension de $extensionOK
+        {
+            $destination = '../upload/';   //destination des photos dans le dossier upload
+            $nom = $destination . $namelower;
+
+            move_uploaded_file($_FILES['picture']['tmp_name'], $nom); // $img
+
+            if ($extension == 'jpg' || $extension == 'jpeg') {
+
+                imageCreateVignetteJpeg($nom, $namelower); // $nom : chemin du fichier  $namelower: nom du fichier en minuscule
+            } else if ($extension == 'gif') {
+
+                imageCreateVignetteGif($nom, $namelower);
+            } else {
+
+                imageCreateVignettePng($nom, $namelower);
+            }
+        } else {
+            echo 'L\'extension n\'est pas valide';
+            exit();  //on arrete le script a ce niveau
+        }
+
+
+    $image3=recupImage('image3');
+        $namenospace = str_replace(' ', '', $_FILES['image3']['name']);  //enleve les espaces dans les noms des fichiers
+        $namelower = strtolower($namenospace);  // mettre les noms des fichiers photo en minuscules
+        $extension = pathinfo($namelower, PATHINFO_EXTENSION);   // extrait l'extension
+        $extensionOK = array('jpg', 'jpeg', 'gif', 'png');  // creation d'un tableau avec des extension possibles pour les photos
+
+        if (in_array($extension, $extensionOK))  // on compare les extension avec les extension de $extensionOK
+        {
+            $destination = '../upload/';   //destination des photos dans le dossier upload
+            $nom = $destination . $namelower;
+
+            move_uploaded_file($_FILES['picture']['tmp_name'], $nom); // $img
+
+            if ($extension == 'jpg' || $extension == 'jpeg') {
+
+                imageCreateVignetteJpeg($nom, $namelower); // $nom : chemin du fichier  $namelower: nom du fichier en minuscule
+            } else if ($extension == 'gif') {
+
+                imageCreateVignetteGif($nom, $namelower);
+            } else {
+
+                imageCreateVignettePng($nom, $namelower);
+            }
+        } else {
+            echo 'L\'extension n\'est pas valide';
+            exit();  //on arrete le script a ce niveau
+        }
+
+
+    $image4=recupImage('image4');
+        $namenospace = str_replace(' ', '', $_FILES['image4']['name']);  //enleve les espaces dans les noms des fichiers
+        $namelower = strtolower($namenospace);  // mettre les noms des fichiers photo en minuscules
+        $extension = pathinfo($namelower, PATHINFO_EXTENSION);   // extrait l'extension
+        $extensionOK = array('jpg', 'jpeg', 'gif', 'png');  // creation d'un tableau avec des extension possibles pour les photos
+
+        if (in_array($extension, $extensionOK))  // on compare les extension avec les extension de $extensionOK
+        {
+            $destination = '../upload/';   //destination des photos dans le dossier upload
+            $nom = $destination . $namelower;
+
+            move_uploaded_file($_FILES['picture']['tmp_name'], $nom); // $img
+
+            if ($extension == 'jpg' || $extension == 'jpeg') {
+
+                imageCreateVignetteJpeg($nom, $namelower); // $nom : chemin du fichier  $namelower: nom du fichier en minuscule
+            } else if ($extension == 'gif') {
+
+                imageCreateVignetteGif($nom, $namelower);
+            } else {
+
+                imageCreateVignettePng($nom, $namelower);
+            }
+        } else {
+            echo 'L\'extension n\'est pas valide';
+            exit();  //on arrete le script a ce niveau
+        }
+
+
     $commentaire = htmlentities($_POST['commentaire'], ENT_QUOTES);
 
     /// on interroge la BDD pour récupérer l'id_Client   ///
-    $requete = $bdd->prepare('SELECT * FROM client WHERE nomClient = :mynomClient AND prenomClient = :myprenomClient');
+    $requete = $bdd->prepare('SELECT * FROM clients WHERE nomClient = :mynomClient AND prenomClient = :myprenomClient  ');
 
     $requete->execute(array(
         'mynomClient' => $nomClient,
@@ -97,13 +249,18 @@ if (isset($_POST['envoi'])) {
     //Récupération de l'ID
     $idClient = $resultat['id_Client'];
 
-/// on recupere les donnees entrees pour les mettrent dans la base  ///
+echo $nomProjet.' '.$dateProjet.' '.$statut.' '.$image1.' '.$image2.' '.$image3.' '.$image4.' '.$commentaire.' '.$idClient;
+
+        $projet= html_entity_decode($nomProjet);
+
+/// on recupere les donnees entrees pour les mettre dans la base  ///
     $requete = $bdd->prepare('INSERT INTO projets
-        (nomProjet,statut,image1,image2,image3,image4,commentaire,id_Client)
-        VALUES(:mynomProjet,:mystatut,:myimage1, :myimage2,:myimage3,:myimage4,:mycommentaire,:myidClient)');
+        (nomProjet,dateProjet,statut,image1,image2,image3,image4,commentaire,id_Client)
+        VALUES(:mynomProjet,:mydateProjet,:mystatut,:myimage1, :myimage2,:myimage3,:myimage4,:mycommentaire,:myidClient)');
 
     $requete->execute(array(
-        'mynomProjet' => $nomProjet,
+        'mynomProjet' => $projet,
+        'mydateProjet' => $dateProjet,
         'mystatut' => $statut,
         'myimage1' => $image1,
         'myimage2' => $image2,
@@ -112,6 +269,10 @@ if (isset($_POST['envoi'])) {
         'mycommentaire' => $commentaire,
         'myidClient' => $idClient
     ));
-}
 
+}
+if (!empty($projet)&& !empty($dateProjet) && !empty($statut)){
+    echo '<script language=javascript> alert ("Données enregistrés.");</script>';
+    echo '<SCRIPT LANGUAGE="JavaScript">document.location.href="messages.php" </SCRIPT>';
+}
 ?>
