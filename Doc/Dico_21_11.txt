@@ -1,0 +1,262 @@
+Dictionnaire de données 
+
+Nom : id
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : nom
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : prenom
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : numRue
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : nomRue
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : codePostal
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : ville
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : email
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : nomEnt
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : telPortable
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : telFixe
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : descriptif
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : nomPersonne
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : contenu
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : domaine
+Type : Varchar
+Taille : 100,0
+Commentaire : 
+
+Nom : typesTravaux
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : prixHeure
+Type : Float
+Taille : 25,0
+Commentaire : 
+
+Nom : description
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : nomProjet
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : statut
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : typeDemande
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : urlImage
+Type : Varchar
+Taille : 100,0
+Commentaire : 
+
+Nom : publier
+Type : Bool
+Taille : 25,0
+Commentaire : 
+
+Nom : typeProjet
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : dateMessage
+Type : Date
+Taille : 25,0
+Commentaire : 
+
+Nom : id_Telephone
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : telPortable
+Type : Varchar
+Taille : 25,2
+Commentaire : 
+
+Nom : dossier_image
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : telFixe
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : telephone
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : image1
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : image2
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : image3
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : image4
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : personneContact
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : numSiret
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : date_projet
+Type : Date
+Taille : 25,0
+Commentaire : 
+
+Nom : id_Administrateur
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : nomAdmin
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : motPasse
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : id_Client
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : nomClient
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : prenomClient
+Type : Varchar
+Taille : 25,0
+Commentaire : 
+
+Nom : emailClient
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : id_Entreprise
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : id_Projet
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : dateProjet
+Type : Date
+Taille : 25,0
+Commentaire : 
+
+Nom : commentaire
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : id_Travaux
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : activite
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
+Nom : id_Visiteur
+Type : Auto_increment
+Taille : 25,0
+Commentaire : 
+
+Nom : message
+Type : Varchar
+Taille : 255,0
+Commentaire : 
+
