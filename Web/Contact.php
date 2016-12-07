@@ -1,14 +1,14 @@
 
 <link rel="stylesheet" href="contact.css">
 
-<?php   include("entete_accueil.php");
-        require_once('connect_bd.php');  /* pour ce connecter a la BD*/
-
+<?php   
+    include("entete_accueil.php");   // pour inclure l'entete dans la page
+    require_once('connect_bd.php');  // pour ce connecter a la BD
 ?>
 
 <div id="contact" class="row">
 
-    <div id="form" class=" col-lg-6 col-md-6 col-sm-6 col-sx-6">
+    <div id="form" class="col-lg-6 col-md-6 col-sm-6 col-sx-6">
         <form name="contactForm" id="contactForm" method="post" action="contact.php" >
             <div class="control-group form-group">
                 <div class="controls">
@@ -57,7 +57,7 @@
             </div>
             
         </form>
-
+<br><br><div></div>
     </div>
 
     <div id="coordo">

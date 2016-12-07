@@ -4,7 +4,8 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <script type="text/javascript" src=".js"></script>
 
-<?php   include("entete_accueil.php");  
+<?php   
+    include("entete_accueil.php");  
 ?>
 
 <div id="conteneur" class="row">
